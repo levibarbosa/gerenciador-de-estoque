@@ -2,7 +2,7 @@
 
 Um sistema moderno e eficiente para gerenciamento de inventário, desenvolvido com React e Vite. O projeto apresenta uma interface premium com design Glassmorphism e funcionalidades completas para controle de produtos e movimentações.
 
-![Gerenciador Preview](https://via.placeholder.com/800x400?text=Gerenciador+de+Estoque+Preview)
+![Gerenciador Preview](https://levibarbosa.github.io/gerenciador-de-estoque)
 
 ## 🚀 Funcionalidades
 
@@ -27,7 +27,7 @@ Um sistema moderno e eficiente para gerenciamento de inventário, desenvolvido c
 
 1.  **Clone o repositório**
     ```bash
-    git clone https://github.com/seu-usuario/gerenciador-estoque.git
+    git clone https://github.com/levibarbosa/gerenciador-de-estoque.git
     cd gerenciador-estoque
     ```
 
