@@ -19,6 +19,7 @@ const StockOut = () => {
 
   const [selectedProduct, setSelectedProduct] = useState(productIdParam || '');
   const [quantity, setQuantity] = useState('');
+  const [category, setCategory] = useState('sale');
 
   useEffect(() => {
     if (productIdParam) {
@@ -30,8 +31,9 @@ const StockOut = () => {
     e.preventDefault();
     if (!selectedProduct || !quantity) return;
 
-    addMovement('out', selectedProduct, quantity);
+    addMovement('out', selectedProduct, quantity, category);
     setQuantity('');
+    setCategory('sale');
     alert('Saída registrada com sucesso!');
     navigate('/products');
   };
@@ -75,6 +77,21 @@ const StockOut = () => {
                 required
                 min="1"
               />
+            </div>
+
+            <div>
+              <label className="label" htmlFor="category">Motivo da Saída</label>
+              <select
+                id="category"
+                className="input"
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+                required
+              >
+                <option value="sale">Venda</option>
+                <option value="loss">Perda / Quebra / Roubo</option>
+                <option value="internal_use">Uso Interno</option>
+              </select>
             </div>
 
             <button type="submit" className="btn btn-primary" style={{ backgroundColor: 'var(--danger)' }}>

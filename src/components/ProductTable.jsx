@@ -30,8 +30,8 @@ const ProductTable = ({ products, onDelete }) => {
                 <td>{product.quantity}</td>
                 <td>{parseFloat(product.price).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
                 <td>
-                  <span className={`badge ${product.quantity < 5 ? 'badge-danger' : 'badge-success'}`}>
-                    {product.quantity < 5 ? 'Baixo Estoque' : 'Em Estoque'}
+                  <span className={`badge ${product.quantity < (product.min_stock || 5) ? 'badge-danger' : 'badge-success'}`}>
+                    {product.quantity < (product.min_stock || 5) ? 'Baixo Estoque' : 'Em Estoque'}
                   </span>
                 </td>
                 <td style={{ display: 'flex', gap: '0.5rem', justifyContent: 'flex-end' }}>

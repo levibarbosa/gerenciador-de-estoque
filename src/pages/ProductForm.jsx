@@ -18,7 +18,8 @@ const ProductForm = () => {
         name: '',
         sku: '',
         quantity: 0,
-        price: 0
+        price: 0,
+        min_stock: 5
     });
 
     const handleSubmit = (e) => {
@@ -88,18 +89,33 @@ const ProductForm = () => {
                         </div>
                     </div>
 
-                    <div>
-                        <label className="label" htmlFor="quantity">Quantidade Inicial</label>
-                        <input
-                            type="number"
-                            id="quantity"
-                            name="quantity"
-                            className="input"
-                            value={formData.quantity}
-                            onChange={handleChange}
-                            required
-                            min="0"
-                        />
+                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                        <div>
+                            <label className="label" htmlFor="quantity">Quantidade Inicial</label>
+                            <input
+                                type="number"
+                                id="quantity"
+                                name="quantity"
+                                className="input"
+                                value={formData.quantity}
+                                onChange={handleChange}
+                                required
+                                min="0"
+                            />
+                        </div>
+                        <div>
+                            <label className="label" htmlFor="min_stock">Estoque Mínimo</label>
+                            <input
+                                type="number"
+                                id="min_stock"
+                                name="min_stock"
+                                className="input"
+                                value={formData.min_stock}
+                                onChange={handleChange}
+                                required
+                                min="1"
+                            />
+                        </div>
                     </div>
 
                     <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '1rem', marginTop: '1rem' }}>
