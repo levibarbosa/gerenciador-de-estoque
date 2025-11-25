@@ -1,0 +1,1 @@
+const e=e=>Number(e).toLocaleString(`pt-BR`,{style:`currency`,currency:`BRL`});export{e as t};
