@@ -11,6 +11,7 @@
  */
 import useProducts from '../hooks/useProducts';
 import { Package, AlertTriangle, DollarSign, TrendingUp, TrendingDown, Activity, AlertOctagon } from 'lucide-react';
+import { formatCurrency } from '../utils/format';
 
 const Dashboard = () => {
   const { getStats, getDashboardMetrics } = useProducts();
@@ -34,7 +35,7 @@ const Dashboard = () => {
     },
     {
       title: 'Valor Total',
-      value: stats.totalValue.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }),
+      value: formatCurrency(stats.totalValue),
       icon: DollarSign,
       color: 'var(--success)',
       bg: 'rgba(34, 197, 94, 0.1)'
@@ -52,7 +53,7 @@ const Dashboard = () => {
     },
     {
       title: 'Perdas/Quebras',
-      value: metrics.totalLossValue.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }),
+      value: formatCurrency(metrics.totalLossValue),
       icon: TrendingDown,
       color: 'var(--danger)',
       bg: 'rgba(239, 68, 68, 0.1)',

@@ -11,39 +11,53 @@
  * - Header: Cabeçalho superior fixo.
  * - Routes: Define as rotas para cada página (Dashboard, Produtos, Estoque, etc).
  */
+import { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
+import { ProductsProvider } from './context/ProductsContext';
 import Sidebar from './components/Sidebar';
 import Header from './components/Header';
-import Dashboard from './pages/Dashboard';
-import Products from './pages/Products';
-import ProductForm from './pages/ProductForm';
-import StockIn from './pages/StockIn';
-import StockOut from './pages/StockOut';
+
+// Lazy Loading das páginas
+const Dashboard = lazy(() => import('./pages/Dashboard'));
+const Products = lazy(() => import('./pages/Products'));
+const ProductForm = lazy(() => import('./pages/ProductForm'));
+const StockIn = lazy(() => import('./pages/StockIn'));
+const StockOut = lazy(() => import('./pages/StockOut'));
+
+// Componente de Loading Simples
+const LoadingSpinner = () => (
+  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%', color: 'var(--text-secondary)' }}>
+    Carregando...
+  </div>
+);
 
 function App() {
   return (
-    <Router>
-      <div className="app-layout">
-        {/* Componente de Navegação Lateral */}
-        <Sidebar />
+    <ProductsProvider>
+      <Router>
+        <div className="app-layout">
+          <Toaster position="top-right" />
+          <Sidebar />
 
-        <div className="main-wrapper">
-          {/* Cabeçalho da Aplicação */}
-          <Header />
+          <div className="main-wrapper">
+            <Header />
 
-          {/* Área Principal de Conteúdo */}
-          <main className="main-content">
-            <Routes>
-              <Route path="/" element={<Dashboard />} />
-              <Route path="/products" element={<Products />} />
-              <Route path="/products/new" element={<ProductForm />} />
-              <Route path="/stock/in" element={<StockIn />} />
-              <Route path="/stock/out" element={<StockOut />} />
-            </Routes>
-          </main>
+            <main className="main-content">
+              <Suspense fallback={<LoadingSpinner />}>
+                <Routes>
+                  <Route path="/" element={<Dashboard />} />
+                  <Route path="/products" element={<Products />} />
+                  <Route path="/products/new" element={<ProductForm />} />
+                  <Route path="/stock/in" element={<StockIn />} />
+                  <Route path="/stock/out" element={<StockOut />} />
+                </Routes>
+              </Suspense>
+            </main>
+          </div>
         </div>
-      </div>
-    </Router>
+      </Router>
+    </ProductsProvider>
   );
 }
 

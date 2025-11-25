@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Edit, ArrowDownCircle, ArrowUpCircle, Trash2 } from 'lucide-react';
+import { formatCurrency } from '../utils/format';
 
 const ProductTable = ({ products, onDelete }) => {
   return (
@@ -28,7 +29,7 @@ const ProductTable = ({ products, onDelete }) => {
                 <td style={{ fontWeight: '500' }}>{product.name}</td>
                 <td style={{ fontFamily: 'monospace', color: 'var(--text-secondary)' }}>{product.sku}</td>
                 <td>{product.quantity}</td>
-                <td>{parseFloat(product.price).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
+                <td>{formatCurrency(product.price)}</td>
                 <td>
                   <span className={`badge ${product.quantity < (product.min_stock || 5) ? 'badge-danger' : 'badge-success'}`}>
                     {product.quantity < (product.min_stock || 5) ? 'Baixo Estoque' : 'Em Estoque'}

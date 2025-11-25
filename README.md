@@ -6,24 +6,34 @@ Site: (https://levibarbosa.github.io/gerenciador-de-estoque)
 
 ## 🚀 Funcionalidades
 
--   **Dashboard Interativo**: Visão geral com métricas de total de produtos, valor do inventário e alertas de estoque baixo.
--   **Gestão de Produtos**: Cadastro, edição e exclusão de produtos com controle de SKU e preços.
+-   **Dashboard Avançado**:
+    -   Métricas em tempo real (Giro de Estoque, Top 5 Vendas, Perdas).
+    -   Alertas visuais para estoque baixo e produtos estagnados.
+-   **Gestão de Produtos**: Cadastro completo com SKU, Preço e Estoque Mínimo.
 -   **Controle de Estoque**:
-    -   Registro de Entradas (Abastecimento).
-    -   Registro de Saídas (Vendas/Baixas).
-    -   Histórico detalhado de movimentações.
--   **Persistência de Dados**: Utiliza `LocalStorage` para manter os dados salvos no navegador, sem necessidade de backend complexo inicial.
--   **Design Responsivo**: Interface adaptável para diferentes tamanhos de tela.
+    -   Entradas (Compras).
+    -   Saídas (Vendas, Perdas/Quebras, Uso Interno).
+-   **Arquitetura Robusta**:
+    -   **Context API**: Gerenciamento de estado global.
+    -   **JSON Server**: API simulada para persistência de dados.
+    -   **Performance**: Lazy Loading e Memoização.
+-   **UX Aprimorada**: Notificações (Toasts), Design Responsivo e Glassmorphism.
 
 ## 🛠️ Tecnologias Utilizadas
 
--   **React**: Biblioteca JavaScript para construção da interface.
--   **Vite**: Ferramenta de build rápida e leve.
--   **CSS Moderno**: Variáveis CSS, Flexbox/Grid e efeitos de Glassmorphism (Vidro Fosco).
--   **React Router**: Gerenciamento de rotas e navegação.
--   **Lucide React**: Ícones modernos e leves.
+-   **React 19**: Biblioteca para interface de usuário.
+-   **Vite**: Build tool de alta performance.
+-   **JSON Server**: Backend simulado (REST API).
+-   **React Router**: Navegação SPA.
+-   **Lucide React**: Ícones.
+-   **React Hot Toast**: Notificações.
 
 ## 📦 Como Executar o Projeto
+
+### Pré-requisitos
+-   Node.js instalado.
+
+### Passo a Passo
 
 1.  **Clone o repositório**
     ```bash
@@ -36,10 +46,20 @@ Site: (https://levibarbosa.github.io/gerenciador-de-estoque)
     npm install
     ```
 
-3.  **Inicie o servidor de desenvolvimento**
+3.  **Inicie o Servidor (Banco de Dados)**
+    Abra um terminal e execute:
+    ```bash
+    npm run server
+    ```
+
+4.  **Inicie a Aplicação (Frontend)**
+    Abra **outro** terminal e execute:
     ```bash
     npm run dev
     ```
+
+5.  **Acesse**
+    Abra seu navegador em `http://localhost:5173`.
 
 4.  **Acesse a aplicação**
     Abra seu navegador em `http://localhost:5173` (ou a porta indicada no terminal).

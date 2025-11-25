@@ -1,33 +1,5 @@
 {
-  "products": [
-    {
-      "id": "16196e5f-ff89-42aa-a40c-f24ba0698489",
-      "name": "Camiseta Básica",
-      "sku": "CAM001",
-      "quantity": 26,
-      "price": "15",
-      "min_stock": "5",
-      "createdAt": "2025-11-25T02:03:42.347Z"
-    },
-    {
-      "id": "ee7188c8-d8e1-4a73-bb83-eb2f926cac8d",
-      "name": "CALÇA 1",
-      "sku": "CALÇA -01",
-      "quantity": 40,
-      "price": "56",
-      "min_stock": 5,
-      "createdAt": "2025-11-25T02:04:45.343Z"
-    },
-    {
-      "id": "3332ff19-f711-4960-9428-d4ef2d1765a5",
-      "name": "CUECA",
-      "sku": "CUE-001",
-      "quantity": 0,
-      "price": "19",
-      "min_stock": 5,
-      "createdAt": "2025-11-25T02:05:18.957Z"
-    }
-  ],
+  "products": [],
   "stock_movements": [
     {
       "id": "f7fe6282-61cc-46b1-93a1-723c0961dc6c",
